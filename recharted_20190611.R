@@ -15,10 +15,9 @@ data <- data.frame(y = c(year2018, year2019),
 p <- ggplot(data, aes(x=labels, y=y, fill=group)) + xlab("항목") + ylab("금액 (조)")+
   geom_bar(stat='identity', position = position_dodge(0.7), width=0.5)+
   scale_x_discrete(expand=c(0,0))+scale_y_continuous(expand=c(0,0))+
-  scale_fill_manual(name="1-4월 세목별 국세수입 규모", values=c("#B0B0B0", "#808080"))+
+  scale_fill_manual(name="1-4월 세목별 국세수입 규모", values=c("#EBCAF0", "#9CD7EC"))+
   ylim(0,35)+
-  geom_text(data=data, aes(x=labels, y=y, label=y), vjust=1.5, size=1, position=position_dodge(0.7),
-            color='white')+
+  geom_text(data=data, aes(x=labels, y=y, label=y), vjust=-0.5, size=1.3, position=position_dodge(0.7))+
   theme(axis.title.x = element_text(size=5, face='bold'),
         plot.title = element_text(size=5, hjust=0.5, face='bold'),
         legend.position=c(0.85, 0.8),
@@ -35,5 +34,4 @@ p <- ggplot(data, aes(x=labels, y=y, fill=group)) + xlab("항목") + ylab("금�
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.background = element_blank())
-
-ggsave("recharted_20190611.png", plot=p, width=3, height=2)
+p
